@@ -149,7 +149,7 @@
     .offer-text { flex-basis: 100%; }
   }
   .nav { display: flex; align-items: center; justify-content: space-between; }
-  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; cursor: pointer; }
   .brand-mark {
     width: 46px; height: 46px;
     border: 1px solid var(--gold);
@@ -158,7 +158,6 @@
     color: var(--gold); font-size: 1.4rem;
   }
   .brand-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; letter-spacing: 0.08em; }
-  .brand-sub { display: block; font-size: 0.62rem; letter-spacing: 0.34em; text-transform: uppercase; color: var(--muted); }
   nav ul { display: flex; gap: 36px; list-style: none; }
   nav a { font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); position: relative; transition: color 0.3s; }
   nav a::after {
@@ -418,7 +417,7 @@
   }
 </style>
 </head>
-<body>
+<body id="top">
 
 <!-- ================= LIMITED-TIME OFFER BANNER ================= -->
 <div class="offer-banner" id="offerBanner">
@@ -433,13 +432,10 @@
 <!-- ================= NAV ================= -->
 <header id="siteHeader">
   <div class="container nav">
-    <div class="brand">
+    <a href="#top" class="brand" id="brandLink" aria-label="Back to top">
       <div class="brand-mark">TR</div>
-      <div>
-        <div class="brand-name">Tripli Regalia</div>
-        <span class="brand-sub">Mayur Palace · Udaipur</span>
-      </div>
-    </div>
+      <div class="brand-name">Tripli Regalia</div>
+    </a>
     <nav>
       <ul id="navMenu">
         <li><a href="#about">The Property</a></li>
@@ -716,6 +712,11 @@
 
   navMenu.addEventListener('click', function (e) {
     if (e.target.tagName === 'A') navMenu.classList.remove('open');
+  });
+
+  document.getElementById('brandLink').addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
   /* ---------- Limited-Time Offer Banner ---------- */
