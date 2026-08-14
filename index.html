@@ -129,6 +129,7 @@
   }
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
   .offer-text { flex: 1; min-width: 260px; margin: 0; font-size: 0.92rem; font-weight: 300; color: var(--cream); }
+  .offer-text-mobile { display: none; }
   .offer-text strong { color: var(--gold-light); font-weight: 500; }
   .offer-cta {
     white-space: nowrap; padding: 11px 22px; font-size: 0.78rem;
@@ -405,7 +406,8 @@
       background-size: cover;
       background-position: center;
     }
-    .hero { padding-top: 110px; }
+    .hero { padding-top: 0; }
+    header { padding-top: 0; padding-bottom: 12px; }
     .brand-name { font-size: 1.3rem; }
     .brand-mark { width: 40px; height: 40px; font-size: 1.2rem; }
     section { padding: 72px 0; }
@@ -416,9 +418,17 @@
     .contact-card { flex-wrap: wrap; }
     .stat { padding: 30px 16px; }
     .stat .num { font-size: 2.4rem; }
-    .offer-banner-inner { gap: 12px; padding-top: 6px; padding-bottom: 6px; }
-    .offer-text { font-size: 0.88rem; }
-    .offer-cta { min-height: 44px; padding: 10px 18px; }
+    .offer-banner { position: fixed; bottom: 0; left: 0; right: 0; width: 100%; z-index: 1000; margin: 0; background: #111; border-top: 1px solid var(--gold); border-bottom: none; }
+    .offer-banner.hidden { transform: translateY(100%); }
+    .offer-banner-inner { display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; flex-wrap: nowrap; gap: 10px; }
+    .offer-live { display: none; }
+    .offer-text { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.8rem; margin: 0; }
+    .offer-text-desktop { display: none; }
+    .offer-text-mobile { display: inline; }
+    .offer-cta { flex-shrink: 0; min-height: 34px; padding: 6px 14px; font-size: 0.72rem; }
+    .claim-full { display: none; }
+    .offer-close { position: static; transform: none; }
+    footer { padding-bottom: 50px; }
   }
   @media (max-width: 640px) {
     .hero-content { text-align: center; padding-bottom: 70px; }
@@ -440,8 +450,11 @@
 <div class="offer-banner" id="offerBanner">
   <div class="container offer-banner-inner">
     <span class="offer-live"><span class="dot"></span> Limited-Time Live Offer</span>
-    <p class="offer-text">Book your <strong>2026 Event or Destination Wedding</strong> today &amp; receive a <strong>complimentary Rooftop Pool Cocktail Hour</strong> for up to 50 guests!</p>
-    <button type="button" class="offer-cta" id="offerClaim">Claim Offer Now</button>
+    <p class="offer-text">
+      <span class="offer-text-desktop">Book your <strong>2026 Event or Destination Wedding</strong> today &amp; receive a <strong>complimentary Rooftop Pool Cocktail Hour</strong> for up to 50 guests!</span>
+      <span class="offer-text-mobile">&#127881; Free Rooftop Cocktail Hour for up to 50 guests!</span>
+    </p>
+    <button type="button" class="offer-cta" id="offerClaim"><span class="claim-short">Claim</span><span class="claim-full"> Offer Now</span></button>
     <button type="button" class="offer-close" id="offerClose" aria-label="Dismiss offer">&#10005;</button>
   </div>
 </div>
@@ -749,7 +762,9 @@
   var offerClaim = document.getElementById('offerClaim');
 
   function setBannerOffset() {
-    document.documentElement.style.setProperty('--banner-h', banner.offsetHeight + 'px');
+    var isMobile = window.matchMedia('(max-width: 768px)').matches;
+    var h = isMobile ? 0 : banner.offsetHeight;
+    document.documentElement.style.setProperty('--banner-h', h + 'px');
   }
   window.addEventListener('resize', setBannerOffset);
   setBannerOffset();
