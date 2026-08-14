@@ -218,7 +218,6 @@
   .stat { padding: 42px 24px; text-align: center; position: relative; }
   .stat + .stat::before { content: ''; position: absolute; left: 0; top: 25%; height: 50%; width: 1px; background: rgba(201, 162, 75, 0.22); }
   .stat .num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--gold); }
-  .stat:not(:first-child) .num::after { content: '+'; }
   .stat .lbl { margin-top: 6px; font-size: 0.74rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); }
 
   /* ---------- Sections ---------- */
@@ -511,9 +510,9 @@
 <div class="stats">
   <div class="container stats-grid">
     <div class="stat"><div class="num" data-count="57">0</div><div class="lbl">Well-Appointed Rooms</div></div>
-    <div class="stat"><div class="num" data-count="120">0</div><div class="lbl">Rooftop Pool &amp; Bar</div></div>
-    <div class="stat"><div class="num" data-count="80">0</div><div class="lbl">Banquet Seating</div></div>
-    <div class="stat"><div class="num" data-count="100">0</div><div class="lbl">Fine Dine Guests</div></div>
+    <div class="stat"><div class="num" data-count="120" data-plus>0</div><div class="lbl">Rooftop Pool &amp; Bar</div></div>
+    <div class="stat"><div class="num" data-count="80" data-plus>0</div><div class="lbl">Banquet Seating</div></div>
+    <div class="stat"><div class="num" data-count="100" data-plus>0</div><div class="lbl">Fine Dine Guests</div></div>
   </div>
 </div>
 
@@ -791,15 +790,16 @@
   /* ---------- Animated counters ---------- */
   function animateCount(el) {
     var target = parseInt(el.getAttribute('data-count'), 10);
+    var suffix = el.hasAttribute('data-plus') ? '+' : '';
     var dur = 1400;
     var start = null;
     function step(ts) {
       if (!start) start = ts;
       var p = Math.min((ts - start) / dur, 1);
       var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(target * eased);
+      el.textContent = Math.round(target * eased) + suffix;
       if (p < 1) requestAnimationFrame(step);
-      else el.textContent = target;
+      else el.textContent = target + suffix;
     }
     requestAnimationFrame(step);
   }
