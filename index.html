@@ -629,8 +629,8 @@
           <input type="date" id="eventDate" name="eventDate">
         </div>
         <div class="field">
-          <label for="guests">Guest Count</label>
-          <select id="guests" name="guests">
+          <label for="guestCount">Guest Count</label>
+          <select id="guestCount" name="guestCount">
             <option value="" disabled selected>Select approximate size</option>
             <option>Up to 50</option>
             <option>50 – 80</option>
@@ -641,8 +641,8 @@
         </div>
       </div>
       <div class="field">
-        <label for="message">Tell us about your event</label>
-        <textarea id="message" name="message" placeholder="Dates, group size, venue preference..."></textarea>
+        <label for="notes">Tell us about your event</label>
+        <textarea id="notes" name="notes" placeholder="Dates, group size, venue preference..."></textarea>
       </div>
       <button type="submit" class="btn btn-fill" style="width:100%; justify-content:center;">Submit Enquiry</button>
       <p class="form-note">Your enquiry is logged with our sales team. Prefer to chat? Use the button below.</p>
@@ -839,8 +839,8 @@
     var email = document.getElementById('email').value.trim();
     var eventType = document.getElementById('eventType').value;
     var eventDate = document.getElementById('eventDate').value;
-    var guests = document.getElementById('guests').value;
-    var message = document.getElementById('message').value.trim();
+    var guestCount = document.getElementById('guestCount').value;
+    var notes = document.getElementById('notes').value.trim();
 
     if (!name || !phone) {
       alert('Please provide your name and phone number so our team can reach you.');
