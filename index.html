@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tripli Regalia Mayur Palace | Luxury Venue Portfolio — Udaipur</title>
+<meta name="description" content="Tripli Regalia Mayur Palace, Amba Mata Road, Udaipur — 57 well-appointed rooms, rooftop pool & bar, banquet and fine-dine venues for MICE, destination weddings and milestone celebrations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a24b;
+    --gold-light: #e6c878;
+    --gold-dark: #a07e2e;
+    --slate: #1a1e26;
+    --slate-2: #232833;
+    --slate-3: #2d3341;
+    --ink: #0f1217;
+    --cream: #efe8d9;
+    --muted: #a9a292;
+    --whatsapp: #25d366;
+    --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    --radius: 18px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--banner-h, 0px) + 96px); }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--ink);
+    color: var(--cream);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--gold); color: var(--ink); }
+
+  h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 600; }
+
+  img { display: block; max-width: 100%; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .container { width: min(1180px, 92%); margin: 0 auto; }
+
+  /* ---------- Gold accents ---------- */
+  .gold { color: var(--gold); }
+  .divider {
+    width: 72px; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 22px auto 0;
+  }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.42em;
+    font-size: 0.74rem;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 30px;
+    border: 1px solid var(--gold);
+    border-radius: 60px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.86rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: all 0.35s ease;
+    cursor: pointer;
+    background: transparent;
+    color: var(--gold-light);
+  }
+  .btn:hover { background: var(--gold); color: var(--ink); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(201, 162, 75, 0.28); }
+  .btn-fill { background: var(--gold); color: var(--ink); }
+  .btn-fill:hover { background: var(--gold-light); }
+
+  /* ---------- Nav ---------- */
+  header {
+    position: fixed; top: var(--banner-h, 0px); left: 0; right: 0; z-index: 100;
+    padding: 20px 0;
+    transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+  }
+  header.scrolled {
+    background: rgba(15, 18, 23, 0.92);
+    backdrop-filter: blur(14px);
+    padding: 12px 0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  /* ---------- Limited-Time Offer Banner ---------- */
+  .offer-banner {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 250;
+    background: linear-gradient(90deg, var(--slate-2), var(--ink) 70%);
+    border-bottom: 1px solid rgba(201, 162, 75, 0.5);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+    transition: transform 0.45s ease;
+  }
+  .offer-banner.hidden { transform: translateY(-100%); }
+  .offer-banner-inner {
+    position: relative;
+    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+    padding: 11px 46px 11px 0;
+  }
+  .offer-live {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--gold-light);
+    background: rgba(201, 162, 75, 0.12);
+    border: 1px solid rgba(201, 162, 75, 0.35);
+    padding: 6px 13px; border-radius: 40px; white-space: nowrap;
+  }
+  .offer-live .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #4ade80; animation: blink 1.4s infinite;
+  }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+  .offer-text { flex: 1; min-width: 260px; margin: 0; font-size: 0.92rem; font-weight: 300; color: var(--cream); }
+  .offer-text strong { color: var(--gold-light); font-weight: 500; }
+  .offer-cta {
+    white-space: nowrap; padding: 11px 22px; font-size: 0.78rem;
+    background: var(--gold); color: var(--ink); border: none; border-radius: 40px;
+    cursor: pointer; letter-spacing: 0.12em; text-transform: uppercase;
+    font-family: 'Jost', sans-serif; transition: all 0.3s;
+  }
+  .offer-cta:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 8px 20px rgba(201, 162, 75, 0.3); }
+  .offer-close {
+    position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+    background: none; border: none; color: var(--muted);
+    font-size: 1.1rem; cursor: pointer; padding: 6px; line-height: 1;
+    transition: color 0.3s;
+  }
+  .offer-close:hover { color: var(--gold-light); }
+  @media (max-width: 900px) {
+    .offer-banner-inner { padding: 10px 42px 10px 16px; }
+    .offer-text { flex-basis: 100%; }
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand-mark {
+    width: 46px; height: 46px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    color: var(--gold); font-size: 1.4rem;
+  }
+  .brand-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; letter-spacing: 0.08em; }
+  .brand-sub { display: block; font-size: 0.62rem; letter-spacing: 0.34em; text-transform: uppercase; color: var(--muted); }
+  nav ul { display: flex; gap: 36px; list-style: none; }
+  nav a { font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); position: relative; transition: color 0.3s; }
+  nav a::after {
+    content: ''; position: absolute; left: 0; bottom: -6px;
+    width: 0; height: 1px; background: var(--gold);
+    transition: width 0.35s ease;
+  }
+  nav a:hover { color: var(--gold-light); }
+  nav a:hover::after { width: 100%; }
+  .nav-cta { display: inline-flex; }
+  .menu-toggle { display: none; background: none; border: none; color: var(--gold-light); font-size: 1.6rem; cursor: pointer; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: flex-end;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15,18,23,0.35) 0%, rgba(15,18,23,0.55) 55%, var(--ink) 100%),
+      url('./images/Exterior5.jpg') center/cover no-repeat;
+    animation: heroZoom 18s ease-in-out infinite alternate;
+  }
+  @keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
+  .hero-content { position: relative; padding: 0 0 90px; width: 100%; }
+  .hero-content .eyebrow { animation: fadeUp 1s 0.2s both; }
+  .hero h1 {
+    font-size: clamp(2.6rem, 6.4vw, 5.4rem);
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    font-weight: 700;
+    animation: fadeUp 1s 0.35s both;
+  }
+  .hero p.lead {
+    margin-top: 22px; max-width: 560px;
+    color: #cfc8b8; font-size: 1.05rem; font-weight: 400;
+    animation: fadeUp 1s 0.5s both;
+  }
+  .hero-actions { margin-top: 38px; display: flex; gap: 16px; flex-wrap: wrap; animation: fadeUp 1s 0.65s both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
+
+  .scroll-hint {
+    position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%);
+    color: var(--muted); font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    animation: bounce 2.2s infinite;
+  }
+  @keyframes bounce { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 8px); } }
+
+  /* ---------- Stats strip ---------- */
+  .stats { border-top: 1px solid rgba(201, 162, 75, 0.22); border-bottom: 1px solid rgba(201, 162, 75, 0.22); background: var(--slate); }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .stat { padding: 42px 24px; text-align: center; position: relative; }
+  .stat + .stat::before { content: ''; position: absolute; left: 0; top: 25%; height: 50%; width: 1px; background: rgba(201, 162, 75, 0.22); }
+  .stat .num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--gold); }
+  .stat .lbl { margin-top: 6px; font-size: 0.74rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); }
+
+  /* ---------- Sections ---------- */
+  section { padding: 110px 0; }
+  .section-head { text-align: center; max-width: 680px; margin: 0 auto 64px; }
+  .section-head h2 { font-size: clamp(2rem, 4vw, 3.1rem); letter-spacing: 0.03em; }
+  .section-head p { color: var(--muted); font-weight: 300; margin-top: 18px; }
+
+  /* ---------- Property / About ---------- */
+  .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
+  .about-visual { position: relative; }
+  .about-visual img { border-radius: var(--radius); box-shadow: var(--shadow); }
+  .about-visual::after {
+    content: 'MAYUR PALACE';
+    position: absolute; top: -24px; left: -24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem; letter-spacing: 0.5em;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: rgba(15, 18, 23, 0.9);
+  }
+  .about-copy h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.12; }
+  .about-copy p { color: #bdb6a6; font-weight: 300; margin-top: 22px; }
+  .about-list { margin-top: 30px; list-style: none; display: grid; gap: 14px; }
+  .about-list li { display: flex; gap: 12px; align-items: flex-start; color: var(--cream); font-weight: 300; }
+  .about-list li::before { content: '\2713'; color: var(--gold); font-weight: 600; }
+
+  /* ---------- Venue cards ---------- */
+  .venues { background: var(--slate); position: relative; overflow: hidden; }
+  .venues::before {
+    content: ''; position: absolute; top: -200px; right: -200px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201, 162, 75, 0.10), transparent 70%);
+  }
+  .venue-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; position: relative; }
+  .venue-card {
+    position: relative; border-radius: var(--radius); overflow: hidden;
+    min-height: 380px; display: flex; align-items: flex-end;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+  }
+  .venue-card .vc-img {
+    position: absolute; inset: 0; background-size: cover; background-position: center;
+    transition: transform 0.9s cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+  .venue-card:hover .vc-img { transform: scale(1.08); }
+  .venue-card::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 35%, rgba(15,18,23,0.88) 88%);
+  }
+  .vc-body { position: relative; z-index: 2; padding: 32px; width: 100%; }
+  .vc-body h3 { font-size: 1.7rem; }
+  .vc-body .vc-cap { margin-top: 10px; color: var(--gold-light); letter-spacing: 0.14em; font-size: 0.8rem; text-transform: uppercase; }
+  .vc-body .vc-cap b { font-size: 1.15rem; font-family: 'Cormorant Garamond', serif; }
+  .vc-body .vc-desc { margin-top: 8px; color: #cfc8b8; font-weight: 300; font-size: 0.95rem; }
+
+  /* ---------- Gallery ---------- */
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .g-item {
+    position: relative; border-radius: 12px; overflow: hidden; cursor: pointer;
+    aspect-ratio: 4 / 3;
+  }
+  .g-item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.7s ease, opacity 0.7s ease;
+    opacity: 0;
+  }
+  .g-item img.loaded { opacity: 1; }
+  .g-item:hover img { transform: scale(1.07); }
+  .g-item::after {
+    content: '\2922'; position: absolute; inset: 0;
+    display: grid; place-items: center;
+    background: rgba(15, 18, 23, 0.5);
+    color: var(--gold); font-size: 1.6rem;
+    opacity: 0; transition: opacity 0.35s ease;
+  }
+  .g-item:hover::after { opacity: 1; }
+  .g-note { text-align: center; color: var(--muted); margin-top: 26px; font-weight: 300; font-size: 0.9rem; }
+
+  /* ---------- Lightbox ---------- */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 300;
+    background: rgba(10, 12, 16, 0.96);
+    display: none; align-items: center; justify-content: center;
+    padding: 30px;
+  }
+  .lightbox.open { display: flex; animation: fadeUp 0.3s both; }
+  .lightbox img { max-width: 92vw; max-height: 84vh; border-radius: 10px; box-shadow: var(--shadow); }
+  .lb-close, .lb-prev, .lb-next {
+    position: absolute; background: none; border: 1px solid var(--gold);
+    color: var(--gold-light); width: 48px; height: 48px; border-radius: 50%;
+    font-size: 1.3rem; cursor: pointer; transition: all 0.3s;
+    display: grid; place-items: center;
+  }
+  .lb-close:hover, .lb-prev:hover, .lb-next:hover { background: var(--gold); color: var(--ink); }
+  .lb-close { top: 26px; right: 26px; }
+  .lb-prev { left: 26px; top: 50%; transform: translateY(-50%); }
+  .lb-next { right: 26px; top: 50%; transform: translateY(-50%); }
+  .lb-count { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); color: var(--muted); letter-spacing: 0.3em; font-size: 0.8rem; }
+
+  /* ---------- Contact / Inquiry ---------- */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 60px; align-items: start; }
+  .contact-info h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); line-height: 1.1; }
+  .contact-info p { color: var(--muted); font-weight: 300; margin-top: 18px; }
+  .contact-cards { margin-top: 34px; display: grid; gap: 16px; }
+  .contact-card {
+    display: flex; gap: 18px; align-items: center;
+    background: var(--slate-2); border: 1px solid rgba(201, 162, 75, 0.18);
+    border-radius: 14px; padding: 20px 24px;
+    transition: transform 0.35s ease, border-color 0.35s ease;
+  }
+  .contact-card:hover { transform: translateY(-3px); border-color: var(--gold); }
+  .contact-card .ic { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--gold); display: grid; place-items: center; color: var(--gold); flex-shrink: 0; }
+  .contact-card .t { color: var(--muted); font-size: 0.72rem; letter-spacing: 0.26em; text-transform: uppercase; }
+  .contact-card .v { color: var(--cream); font-weight: 400; margin-top: 3px; word-break: break-word; }
+
+  form { background: var(--slate-2); border: 1px solid rgba(201, 162, 75, 0.18); border-radius: var(--radius); padding: 40px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .field input, .field select, .field textarea {
+    width: 100%; background: var(--slate); border: 1px solid rgba(201, 162, 75, 0.22);
+    border-radius: 10px; color: var(--cream); font-family: 'Jost', sans-serif;
+    font-size: 0.95rem; padding: 14px 16px; transition: border-color 0.3s;
+    outline: none;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--gold); }
+  .field textarea { resize: vertical; min-height: 110px; }
+  .field select option { background: var(--slate); }
+  .form-note { font-size: 0.8rem; color: var(--muted); margin-top: 14px; text-align: center; font-weight: 300; }
+  .form-note b { color: var(--whatsapp); }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--ink); border-top: 1px solid rgba(201, 162, 75, 0.18); padding: 46px 0 120px; }
+  .foot-grid { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 22px; }
+  .foot-left { display: flex; align-items: center; gap: 14px; }
+  .foot-left .brand-name { font-size: 1.25rem; }
+  .foot-links { display: flex; gap: 28px; list-style: none; }
+  .foot-links a { font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); transition: color 0.3s; }
+  .foot-links a:hover { color: var(--gold-light); }
+  .foot-bottom { margin-top: 34px; text-align: center; color: var(--muted); font-size: 0.78rem; font-weight: 300; }
+
+  /* ---------- Floating WhatsApp ---------- */
+  .wa-float {
+    position: fixed; right: 26px; bottom: 26px; z-index: 150;
+    width: 60px; height: 60px; border-radius: 50%;
+    background: var(--whatsapp);
+    display: grid; place-items: center;
+    box-shadow: 0 14px 34px rgba(37, 211, 102, 0.42);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: waPulse 2.6s infinite;
+  }
+  .wa-float:hover { transform: translateY(-4px) scale(1.05); }
+  .wa-float svg { width: 30px; height: 30px; fill: #fff; }
+  @keyframes waPulse {
+    0%, 100% { box-shadow: 0 14px 34px rgba(37, 211, 102, 0.42); }
+    50% { box-shadow: 0 14px 44px rgba(37, 211, 102, 0.7); }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 960px) {
+    nav ul {
+      position: fixed; inset: 0; background: rgba(15, 18, 23, 0.98);
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 30px; transform: translateY(-100%); transition: transform 0.45s ease;
+    }
+    nav ul.open { transform: translateY(0); }
+    nav a { font-size: 1.05rem; }
+    .nav-cta { display: none; }
+    .menu-toggle { display: block; position: relative; z-index: 200; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(3)::before { display: none; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 44px; }
+    .venue-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .hero-content { text-align: center; padding-bottom: 70px; }
+    .hero h1 { font-size: 2.65rem; line-height: 1.12; letter-spacing: 0; font-weight: 700; }
+    .hero p.lead { margin-left: auto; margin-right: auto; font-size: 1rem; font-weight: 400; line-height: 1.6; }
+    .hero-actions { justify-content: center; }
+    .hero-content .eyebrow { letter-spacing: 0.3em; }
+  }
+  @media (max-width: 560px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .stat .num { font-size: 2.1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= LIMITED-TIME OFFER BANNER ================= -->
+<div class="offer-banner" id="offerBanner">
+  <div class="container offer-banner-inner">
+    <span class="offer-live"><span class="dot"></span> Limited-Time Live Offer</span>
+    <p class="offer-text">Book your <strong>2026 Event or Destination Wedding</strong> today &amp; receive a <strong>complimentary Rooftop Pool Cocktail Hour</strong> for up to 50 guests!</p>
+    <button type="button" class="offer-cta" id="offerClaim">Claim Offer Now</button>
+    <button type="button" class="offer-close" id="offerClose" aria-label="Dismiss offer">&#10005;</button>
+  </div>
+</div>
+
+<!-- ================= NAV ================= -->
+<header id="siteHeader">
+  <div class="container nav">
+    <div class="brand">
+      <div class="brand-mark">TR</div>
+      <div>
+        <div class="brand-name">Tripli Regalia</div>
+        <span class="brand-sub">Mayur Palace · Udaipur</span>
+      </div>
+    </div>
+    <nav>
+      <ul id="navMenu">
+        <li><a href="#about">The Property</a></li>
+        <li><a href="#venues">Venues</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="btn btn-fill nav-cta" style="padding:11px 24px;">Enquire Now</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <div class="eyebrow">Amba Mata Road · Udaipur</div>
+    <h1>Regal Venues for<br><span class="gold">Moments Worth Remembering</span></h1>
+    <p class="lead">Tripli Regalia Mayur Palace — an intimate luxury destination on the edge of Lake City, crafted for MICE gatherings, destination weddings and milestone celebrations.</p>
+    <div class="hero-actions">
+      <a href="#gallery" class="btn">View Gallery</a>
+      <a href="#contact" class="btn btn-fill">Plan Your Event</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- ================= STATS ================= -->
+<div class="stats">
+  <div class="container stats-grid">
+    <div class="stat"><div class="num" data-count="57">0</div><div class="lbl">Well-Appointed Rooms</div></div>
+    <div class="stat"><div class="num" data-count="120">0</div><div class="lbl">Rooftop Pool &amp; Bar</div></div>
+    <div class="stat"><div class="num" data-count="80">0</div><div class="lbl">Banquet Seating</div></div>
+    <div class="stat"><div class="num" data-count="100">0</div><div class="lbl">Fine Dine Guests</div></div>
+  </div>
+</div>
+
+<!-- ================= ABOUT / PROPERTY ================= -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-visual">
+      <img src="./images/mayur-01.jpg" alt="Tripli Regalia Mayur Palace exterior">
+    </div>
+    <div class="about-copy">
+      <div class="eyebrow">The Property</div>
+      <h2>A Royal Hideaway in<br>the Heart of Udaipur</h2>
+      <p>Mayur Palace blends Rajasthani grandeur with contemporary comfort. With <span class="gold">57 well-appointed rooms</span>, we host intimate groups where every guest feels like royalty — perfect for corporate retreats, weddings and celebrations of scale.</p>
+      <ul class="about-list">
+        <li>Wedding &amp; corporate group accommodation for up to 57 rooms</li>
+        <li>Dedicated banqueting team for seamless event execution</li>
+        <li>Central location on Amba Mata Road, minutes from Udaipur's lakefront</li>
+        <li>Bespoke catering for MICE, weddings &amp; milestone events</li>
+      </ul>
+      <a href="#contact" class="btn" style="margin-top:36px;">Speak With Our Team</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VENUES ================= -->
+<section id="venues" class="venues">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Venue Capacity</div>
+      <h2>Spaces Designed for the <span class="gold">Perfect Gathering</span></h2>
+      <p>From panoramic rooftops to private banqueting halls — choose the backdrop for your story.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="venue-grid">
+      <div class="venue-card">
+        <div class="vc-img" style="background-image:url('./images/mayur-07.jpg')"></div>
+        <div class="vc-body">
+          <h3>Rooftop Pool &amp; Bar</h3>
+          <div class="vc-cap">Up to <b>120 guests</b></div>
+          <p class="vc-desc">An open-air terrace with a shimmering pool and skyline views — the signature setting for sunset ceremonies and evening soirees.</p>
+        </div>
+      </div>
+      <div class="venue-card">
+        <div class="vc-img" style="background-image:url('./images/Room Cat Five9.jpg')"></div>
+        <div class="vc-body">
+          <h3>Banquet Hall</h3>
+          <div class="vc-cap">Up to <b>80 guests</b></div>
+          <p class="vc-desc">An opulent indoor space for receptions, boardroom-style conferences and intimate celebratory dinners.</p>
+        </div>
+      </div>
+      <div class="venue-card">
+        <div class="vc-img" style="background-image:url('./images/Restaurant8.jpg')"></div>
+        <div class="vc-body">
+          <h3>Fine Dine Restaurant</h3>
+          <div class="vc-cap">Up to <b>100 guests</b></div>
+          <p class="vc-desc">Culinary artistry served in a refined setting — ideal for corporate banquets, product launches and milestone toasts.</p>
+        </div>
+      </div>
+      <div class="venue-card">
+        <div class="vc-img" style="background-image:url('./images/Cafe5.jpg')"></div>
+        <div class="vc-body">
+          <h3>Poolside &amp; Café Terraces</h3>
+          <div class="vc-cap">Flexible capacity</div>
+          <p class="vc-desc">Cascading lounge spaces for high teas, networking breaks and relaxed evening hospitality.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Gallery</div>
+      <h2>A Glimpse of <span class="gold">Mayur Palace</span></h2>
+      <p>Explore the rooms, rooftop, restaurant and grounds — captured as guests experience them.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"><!-- images injected by JS --></div>
+    <p class="g-note">Click any image to view full screen.</p>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <div class="eyebrow">Enquiries</div>
+      <h2>Let's Begin Planning<br>Your <span class="gold">Signature Event</span></h2>
+      <p>Share a few details and our team will reach out on WhatsApp within minutes. For immediate assistance, contact our Sales Director directly.</p>
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="ic">&#9679;</div>
+          <div>
+            <div class="t">Sales Director</div>
+            <div class="v">Amit Bhardwaj</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="ic">&#9993;</div>
+          <div>
+            <div class="t">Email</div>
+            <div class="v">amitbhardwaj@triplihotels.com</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="ic">&#9993;</div>
+          <div>
+            <div class="t">Reservations</div>
+            <div class="v">reservation@triplihotels.com</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="ic">&#9762;</div>
+          <div>
+            <div class="t">WhatsApp Sales Desk</div>
+            <div class="v">+91 92612 02317</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form id="inquiryForm" novalidate>
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone / WhatsApp</label>
+          <input type="tel" id="phone" name="phone" placeholder="+91 ..." required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com">
+        </div>
+        <div class="field">
+          <label for="eventType">Event Type</label>
+          <select id="eventType" name="eventType">
+            <option value="" disabled selected>Select type</option>
+            <option value="Complimentary Rooftop Pool Cocktail Hour Offer">Special Offer — Rooftop Pool Cocktail Hour</option>
+            <option>Destination Wedding</option>
+            <option>MICE / Corporate Retreat</option>
+            <option>Milestone Celebration</option>
+            <option>Banquet / Reception</option>
+            <option>Rooftop Poolside Event</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="eventDate">Event Date</label>
+          <input type="date" id="eventDate" name="eventDate">
+        </div>
+        <div class="field">
+          <label for="guests">Guest Count</label>
+          <select id="guests" name="guests">
+            <option value="" disabled selected>Select approximate size</option>
+            <option>Up to 50</option>
+            <option>50 – 80</option>
+            <option>80 – 100</option>
+            <option>100 – 120</option>
+            <option>120+</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="message">Tell us about your event</label>
+        <textarea id="message" name="message" placeholder="Dates, group size, venue preference..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-fill" style="width:100%; justify-content:center;">Submit Enquiry</button>
+      <p class="form-note">Your enquiry is logged with our sales team and a pre-filled <b>WhatsApp</b> message opens as backup.</p>
+      <p class="form-note" id="formConfirm" hidden style="color:var(--whatsapp); font-weight:500; margin-top:18px;">&#10003; Thank you! Your enquiry has been received. Our team will reach out shortly.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <div class="brand-mark">TR</div>
+        <div class="brand-name">Tripli Regalia Mayur Palace</div>
+      </div>
+      <ul class="foot-links">
+        <li><a href="#about">Property</a></li>
+        <li><a href="#venues">Venues</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-bottom">
+      &copy; <span id="year"></span> Tripli Regalia Mayur Palace, Amba Mata Road, Udaipur. Crafted for unforgettable celebrations.
+    </div>
+  </div>
+</footer>
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose" aria-label="Close">&#10005;</button>
+  <button class="lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+  <img id="lbImg" src="" alt="Gallery image">
+  <button class="lb-next" id="lbNext" aria-label="Next">&#8250;</button>
+  <div class="lb-count" id="lbCount"></div>
+</div>
+
+<!-- ================= FLOATING WHATSAPP ================= -->
+<a class="wa-float" href="https://wa.me/919261202317?text=Hello%20Tripli%20Regalia%20Mayur%20Palace%2C%20I%20would%20like%20to%20enquire%20about%20your%20venues." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+(function () {
+  'use strict';
+
+  var WA_NUMBER = '919261202317';
+  var WA_BASE = 'https://wa.me/' + WA_NUMBER + '?text=';
+
+  /* ---------- Nav ---------- */
+  var header = document.getElementById('siteHeader');
+  var menuToggle = document.getElementById('menuToggle');
+  var navMenu = document.getElementById('navMenu');
+
+  window.addEventListener('scroll', function () {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  menuToggle.addEventListener('click', function () {
+    navMenu.classList.toggle('open');
+  });
+
+  navMenu.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') navMenu.classList.remove('open');
+  });
+
+  /* ---------- Limited-Time Offer Banner ---------- */
+  var banner = document.getElementById('offerBanner');
+  var offerClose = document.getElementById('offerClose');
+  var offerClaim = document.getElementById('offerClaim');
+
+  function setBannerOffset() {
+    document.documentElement.style.setProperty('--banner-h', banner.offsetHeight + 'px');
+  }
+  window.addEventListener('resize', setBannerOffset);
+  setBannerOffset();
+
+  offerClose.addEventListener('click', function () {
+    banner.classList.add('hidden');
+    document.documentElement.style.setProperty('--banner-h', '0px');
+  });
+
+  offerClaim.addEventListener('click', function () {
+    var sel = document.getElementById('eventType');
+    sel.value = 'Complimentary Rooftop Pool Cocktail Hour Offer';
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    formConfirm.hidden = true;
+  });
+
+  /* ---------- Animated counters ---------- */
+  function animateCount(el) {
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    var dur = 1400;
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased);
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) {
+        animateCount(en.target);
+        io.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.6 });
+
+  document.querySelectorAll('.stat .num').forEach(function (el) { io.observe(el); });
+
+  /* ---------- Gallery ---------- */
+  var IMAGES = [
+    'mayur-01.jpg', 'mayur-02.jpg', 'mayur-03.jpg', 'mayur-04.jpg', 'mayur-05.jpg',
+    'mayur-06.jpg', 'mayur-07.jpg', 'mayur-08.jpg', 'mayur-09.jpg', 'mayur-10.jpg',
+    'mayur-11.jpg', 'mayur-12.jpg',
+    'Exterior5.jpg',
+    'Cafe2.jpg', 'Cafe3.jpg', 'Cafe4.jpg', 'Cafe5.jpg',
+    'Restaurant6.jpg', 'Restaurant8.jpg',
+    'Room Cat Five3.jpg', 'Room Cat Five4.jpg', 'Room Cat Five9.jpg',
+    'Room Cat Four1.jpg', 'Room Cat Four3.jpg', 'Room Cat Four4.jpg',
+    'Room Cat One1.jpg'
+  ];
+  var PATHS = IMAGES.map(function (f) { return './images/' + f; });
+
+  var grid = document.getElementById('galleryGrid');
+  PATHS.forEach(function (src) {
+    var wrap = document.createElement('div');
+    wrap.className = 'g-item';
+    var img = document.createElement('img');
+    img.loading = 'lazy';
+    img.alt = 'Tripli Regalia Mayur Palace gallery image';
+    img.src = src;
+    img.addEventListener('load', function () { img.classList.add('loaded'); });
+    img.addEventListener('error', function () { wrap.style.display = 'none'; });
+    wrap.appendChild(img);
+    grid.appendChild(wrap);
+  });
+
+  var items = Array.prototype.slice.call(grid.children);
+
+  /* ---------- Lightbox ---------- */
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lbImg');
+  var lbCount = document.getElementById('lbCount');
+  var idx = 0;
+
+  function show(i) {
+    idx = (i + items.length) % items.length;
+    lbImg.src = PATHS[idx];
+    lbCount.textContent = (idx + 1) + ' / ' + items.length;
+  }
+
+  grid.addEventListener('click', function (e) {
+    var item = e.target.closest('.g-item');
+    if (!item) return;
+    show(items.indexOf(item));
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+
+  function close() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('lbClose').addEventListener('click', close);
+  document.getElementById('lbPrev').addEventListener('click', function () { show(idx - 1); });
+  document.getElementById('lbNext').addEventListener('click', function () { show(idx + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(idx - 1);
+    if (e.key === 'ArrowRight') show(idx + 1);
+  });
+
+  /* ---------- Inquiry form -> Google Sheet + WhatsApp ---------- */
+  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbxsncZ-_HoisUGKp9SpB6agCYNhkzTvYZRXAPPnSqBW_4_DwaJnmK7k39GNxzDR9_6KXw/exec';
+  var form = document.getElementById('inquiryForm');
+  var formConfirm = document.getElementById('formConfirm');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var name = document.getElementById('name').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var eventType = document.getElementById('eventType').value;
+    var eventDate = document.getElementById('eventDate').value;
+    var guests = document.getElementById('guests').value;
+    var message = document.getElementById('message').value.trim();
+
+    if (!name || !phone) {
+      alert('Please provide your name and phone number so our team can reach you.');
+      return;
+    }
+
+    var payload = {
+      Name: name,
+      Phone: phone,
+      Email: email,
+      'Event Type': eventType,
+      'Event Date': eventDate,
+      'Guest Count': guests,
+      Details: message
+    };
+
+    fetch(SHEET_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    }).catch(function () {});
+
+    var lines = [
+      '*New Enquiry — Tripli Regalia Mayur Palace*',
+      '',
+      '*Name:* ' + name,
+      '*Phone:* ' + phone
+    ];
+    if (email) lines.push('*Email:* ' + email);
+    if (eventType) lines.push('*Event Type:* ' + eventType);
+    if (eventDate) lines.push('*Event Date:* ' + eventDate);
+    if (guests) lines.push('*Guest Count:* ' + guests);
+    if (message) lines.push('*Details:* ' + message);
+
+    window.open(WA_BASE + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+
+    formConfirm.hidden = false;
+    form.reset();
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
