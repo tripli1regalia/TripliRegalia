@@ -218,6 +218,7 @@
   .stat { padding: 42px 24px; text-align: center; position: relative; }
   .stat + .stat::before { content: ''; position: absolute; left: 0; top: 25%; height: 50%; width: 1px; background: rgba(201, 162, 75, 0.22); }
   .stat .num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--gold); }
+  .stat:not(:first-child) .num::after { content: '+'; }
   .stat .lbl { margin-top: 6px; font-size: 0.74rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); }
 
   /* ---------- Sections ---------- */
@@ -355,6 +356,8 @@
   .form-success .fs-msg { color: var(--cream); font-weight: 400; font-size: 0.98rem; margin-bottom: 18px; }
   .form-success .fs-msg::before { content: ''; }
   .form-success a { font-size: 0.8rem; }
+  .form-error { margin-top: 22px; padding: 18px; border: 1px solid rgba(239, 68, 68, 0.5); background: rgba(239, 68, 68, 0.1); border-radius: 14px; text-align: center; animation: fadeUp 0.4s both; }
+  .form-error p { color: var(--cream); font-weight: 400; font-size: 0.95rem; }
 
   /* ---------- Footer ---------- */
   footer { background: var(--ink); border-top: 1px solid rgba(201, 162, 75, 0.18); padding: 46px 0 120px; }
@@ -691,6 +694,9 @@
         <p class="fs-msg">&#10003; Thank you for reaching out! We have received your inquiry for Tripli Regalia and our team will get back to you shortly.</p>
         <a href="https://wa.me/919261202317" target="_blank" rel="noopener" class="btn" style="justify-content:center;">Chat on WhatsApp</a>
       </div>
+      <div class="form-error" id="formError" hidden>
+        <p>&#9888; Oops — we couldn't send your enquiry. Please check your connection and try again, or message us directly on WhatsApp.</p>
+      </div>
     </form>
   </div>
 </section>
@@ -779,6 +785,7 @@
     sel.value = 'Complimentary Rooftop Pool Cocktail Hour Offer';
     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
     formConfirm.hidden = true;
+    formError.hidden = true;
   });
 
   /* ---------- Animated counters ---------- */
@@ -878,6 +885,8 @@
   var SHEET_URL = 'https://script.google.com/macros/s/AKfycbwCNFaMtLRji4OSbeKafiUZWD4udfVxvM26PI0zLQHxPv-3Kp-D_VAmyG6_H5aZ344Jbg/exec';
   var form = document.getElementById('inquiryForm');
   var formConfirm = document.getElementById('formConfirm');
+  var formError = document.getElementById('formError');
+  var submitBtn = form.querySelector('button[type="submit"]');
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -897,15 +906,29 @@
 
     var formData = new FormData(form);
 
+    formError.hidden = true;
+    formConfirm.hidden = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
     fetch(SHEET_URL, {
       method: 'POST',
       mode: 'no-cors',
       body: formData
-    }).catch(function () {});
-
-    formConfirm.hidden = false;
-    form.reset();
-    formConfirm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    })
+      .then(function () {
+        formConfirm.hidden = false;
+        form.reset();
+        formConfirm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .catch(function () {
+        formError.hidden = false;
+        formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Enquiry';
+      });
   });
 
   document.getElementById('year').textContent = new Date().getFullYear();
