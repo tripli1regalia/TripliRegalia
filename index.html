@@ -847,21 +847,12 @@
       return;
     }
 
-    var payload = {
-      Name: name,
-      Phone: phone,
-      Email: email,
-      'Event Type': eventType,
-      'Event Date': eventDate,
-      'Guest Count': guests,
-      Details: message
-    };
+    var formData = new FormData(form);
 
     fetch(SHEET_URL, {
       method: 'POST',
       mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(payload)
+      body: formData
     }).catch(function () {});
 
     formConfirm.hidden = false;
