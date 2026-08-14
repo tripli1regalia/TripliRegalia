@@ -180,9 +180,9 @@
   }
   .hero-bg {
     position: absolute; inset: 0;
-    background:
-      linear-gradient(180deg, rgba(15,18,23,0.35) 0%, rgba(15,18,23,0.55) 55%, var(--ink) 100%),
-      url('./images/Exterior5.jpg') center/cover no-repeat;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('./images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
     animation: heroZoom 18s ease-in-out infinite alternate;
   }
   @keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
@@ -400,6 +400,11 @@
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 768px) {
+    .hero-bg {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('./images/mayur-02.jpg');
+      background-size: cover;
+      background-position: center;
+    }
     .brand-name { font-size: 1.3rem; }
     .brand-mark { width: 40px; height: 40px; font-size: 1.2rem; }
     section { padding: 72px 0; }
