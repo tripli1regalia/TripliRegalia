@@ -179,13 +179,18 @@
     overflow: hidden;
   }
   .hero-bg {
+    position: absolute; inset: 0; overflow: hidden;
+  }
+  .hero-bg video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .hero-overlay {
     position: absolute; inset: 0;
     background:
-      linear-gradient(180deg, rgba(15,18,23,0.35) 0%, rgba(15,18,23,0.55) 55%, var(--ink) 100%),
-      url('./images/Exterior5.jpg') center/cover no-repeat;
-    animation: heroZoom 18s ease-in-out infinite alternate;
+      linear-gradient(180deg, rgba(15,18,23,0.5) 0%, rgba(15,18,23,0.62) 55%, var(--ink) 100%);
   }
-  @keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
   .hero-content { position: relative; padding: 0 0 90px; width: 100%; }
   .hero-content .eyebrow { animation: fadeUp 1s 0.2s both; }
   .hero h1 {
@@ -450,7 +455,10 @@
 
 <!-- ================= HERO ================= -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg">
+    <video autoplay loop muted playsinline src="./images/regalia video 1.mp4"></video>
+    <div class="hero-overlay"></div>
+  </div>
   <div class="container hero-content">
     <div class="eyebrow">Amba Mata Road · Udaipur</div>
     <h1>Regal Venues for<br><span class="gold">Moments Worth Remembering</span></h1>
